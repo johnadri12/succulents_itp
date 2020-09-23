@@ -1,0 +1,220 @@
+<?php
+ include 'include/header.php';
+?>
+
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+         <?php
+          include 'include/topbar.php';
+         ?>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+         <?php
+             $title_page="Add Employee";
+             include 'include/sidebar.php';
+         ?>
+        
+        
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        
+
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+                
+        <?php
+            include 'include/titlepage.php';
+        ?>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+             
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-outline-info">
+                            <div class="card-header">
+                                <h4 class="m-b-0 text-white">Employee Details</h4>
+                            </div>
+                            <div class="card-body">
+                                <form action="#">
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class= "col-md-12">
+                                                <div class="user-profiler">
+                                                    <div class="profile-img"    > <img class="change_img" src="assets/images/users/male.png" alt="user">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">First Name</label>
+                                                    <input type="text" id="firstName" class="form-control" placeholder="First Name">
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Last Name</label>
+                                                    <input type="text" id="lastName" class="form-control" placeholder="Last Name">
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                        <!--/row-->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Gender</label>
+                                                    <select class="form-control custom-select selector_image">
+                                                        <option class="male" value="assets/images/users/male.png">Male</option>
+                                                        <option class="female" value="assets/images/users/female.png">Female</option>
+                                                    </select>
+                                                    <small class="form-control-feedback"> Select your gender </small> </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Position</label>
+                                                    <select class="form-control custom-select selector_image">
+                                                        <option value="Marketing"> Marketing Staff</option>
+                                                        <option value="Marketing"> Tagasigaw</option>
+                                                        <option value="Marketing"> Tagagulo </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Date of Birth</label>
+                                                    <input type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Gcash</label>
+                                                    <input type="text" id="firstName" class="form-control" placeholder="1233465849843" >
+                                                </div>
+                                            <!--/span-->
+                                            </div>
+                                        </div>
+                                        <!--/row-->
+                                        <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Email</label>
+                                                    <input type="email" id="firstName" class="form-control" placeholder="Email ">
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group has-danger">
+                                                    <label class="control-label">UserName</label>
+                                                    <input type="text" id="lastName" class="form-control form-control-danger" placeholder="User Name">
+                                                    <small class="form-control-feedback"> Make it Unique. </small> </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                        <!--/row-->
+                                        <div class="row p-t-20">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Password</label>
+                                                    <input type="text" id="password" class="form-control" placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label class="control-label">Confirm Password</label>
+                                                    <input type="text" id="conpassword" class="form-control form-control-danger" placeholder="Confirm Password">
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                        <!--/row-->
+                                        <div class="row">
+                                            <!--span-->
+                                            
+                                        </div>
+                                        <!--/row-->
+                                        <h3 class="box-title m-t-40">Address</h3>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-12 ">
+                                                <div class="form-group">
+                                                    <label>Street</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>City</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>State</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                        <!--/row-->
+                                       
+                                    </div>
+
+                                    <div class="form-actions text-right">
+                                        <button type="button" id="sa-warning"class="btn btn-inverse">Cancel</button>
+                                        <button type="button" id="sa-success" class="btn btn-success" > <i class="fa fa-check" ></i> Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            
+        <?php
+            include 'include/footer.php';
+        ?>
