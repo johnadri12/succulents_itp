@@ -77,9 +77,9 @@ File: css
 }
 
 .wizard-content .wizard>.steps>ul>li.current .step {
-    border-color: #009efb ;
+    border-color: #ffb22b;
     background-color: #fff;
-    color: #009efb 
+    color: #28a745;
 }
 
 .wizard-content .wizard>.steps>ul>li.disabled a,
@@ -96,9 +96,9 @@ File: css
 }
 
 .wizard-content .wizard>.steps>ul>li.done .step {
-    background-color: #009efb ;
-    border-color: #009efb ;
-    color: #fff
+    background-color: #28a745;
+    border-color: #ffb22b;
+    color: #fff;
 }
 
 .wizard-content .wizard>.steps>ul>li.error .step {
@@ -169,12 +169,12 @@ File: css
 }
 
 .wizard-content .wizard>.actions>ul>li>a {
-    background: #009efb ;
+    background: #28a745;
     color: #fff;
     display: block;
     padding: 7px 12px;
     border-radius: 4px;
-    border: 1px solid transparent
+    border: 1px solid transparent;
 }
 
 .wizard-content .wizard>.actions>ul>li>a:focus,
@@ -218,12 +218,11 @@ File: css
     box-shadow: none
 }
 
-.wizard-content .wizard.wizard-circle>.steps>ul>li:after,
-.wizard-content .wizard.wizard-circle>.steps>ul>li:before {
+.wizard-content .wizard.wizard-circle>.steps>ul>li:after, .wizard-content .wizard.wizard-circle>.steps>ul>li:before {
     top: 45px;
     width: 50%;
     height: 3px;
-    background-color: #009efb 
+    background-color: #ffb22b;
 }
 
 .wizard-content .wizard.wizard-circle>.steps>ul>li.current:after,
@@ -320,10 +319,12 @@ File: css
     .wizard-content .wizard>.steps>ul>li {
         display: block;
         float: left;
-        width: 50%
+        width: 33%
     }
     .wizard-content .wizard>.steps>ul>li>a {
-        margin-bottom: 0
+        margin-bottom: 0;
+        font-size: 10px;
+
     }
     .wizard-content .wizard>.steps>ul>li:first-child:before {
         content: ''
@@ -339,7 +340,7 @@ File: css
 
 @media (max-width:480px) {
     .wizard-content .wizard>.steps>ul>li {
-        width: 100%
+        width: 33%;
     }
     .wizard-content .wizard>.steps>ul>li.current:after {
         background-color: #009efb 
