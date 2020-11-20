@@ -3,7 +3,7 @@
 ?>
 
 <script src="functions/js/jquery.js"></script>
-<body class="fix-header fix-sidebar card-no-border" onload="load_employee_list()">
+<body class="fix-header fix-sidebar card-no-border" onload="load_supplier_list()">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -28,7 +28,7 @@
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
          <?php
-             $title_page="Manage Employee";
+             $title_page="Manage Supplier";
              include 'include/sidebar.php';
          ?>
         
@@ -74,15 +74,28 @@
                                <div class="row">
                                     <div class="col-md-4"></div>
                                   <!-- Filter -->
-                                    <div class="col-md-4">
+                                    <div class="col-md-7">
                                         <div class="form-group has-success">
-                                        <select id="status_select" class="form-control custom-select ">
-                                            <option class="all" >All</option>
-                                            <option class="active" >Active</option>
-                                            <option class="inactive" >Inactive</option>
-                                        </select>
-                                        <small class="form-control-feedback"> Please Select Filter </small> </div>
-                                        </div>
+                                            <div class="checkbox checkbox-primary pull-left p-t-0" style="margin-right: 10px; margin-top: 10px">
+                                            <input id="checkbox-flowers" type="checkbox" class="chks">
+                                            <label for="checkbox-flowers"> Flowers </label>
+                                            </div>
+                                            <div class="checkbox checkbox-primary pull-left p-t-0" style="margin-right: 10px; margin-top: 10px">
+                                                <input id="checkbox-Cactus" type="checkbox" class="chks">
+                                                <label for="checkbox-Cactus"> Cactus</label>
+                                            </div>
+                                            <div class="checkbox checkbox-primary pull-left p-t-0" style="margin-right: 10px; margin-top: 10px">
+                                                <input id="checkbox-Soil" type="checkbox" class="chks">
+                                                <label for="checkbox-Soil"> Soil </label>
+                                            </div>
+                                            <div class="checkbox checkbox-primary pull-left p-t-0" style="margin-right: 10px; margin-top: 10px">
+                                                <input id="checkbox-Pot" type="checkbox" class="chks">
+                                                <label for="checkbox-Pot"> Pot </label>
+                                            </div>
+                                            <input type="hidden" id="sup_sellingfilter" name="" value="none">
+                                            <br><br>
+                                              <small class="form-control-feedback"> Please Select Filter </small> </div>
+                                    </div>
                                   <!-- Filter -->
                                     <div class="col-md-4"></div>
                                </div>
@@ -100,7 +113,7 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-6 ">
-                                         <h4 class="m-b-0 text-white">Employee List</h4>
+                                         <h4 class="m-b-0 text-white">Supplier List</h4>
                                     </div>
                                     <div class="col-md-6 text-right">
                                         <div class="row">
@@ -126,12 +139,12 @@
                                     <table class="table table-striped borderas">
                                         <thead>
                                             <tr>
-                                                <th>Employee Id</th>
-                                                <th>Employee Name</th>
-                                                <th>Employee Role</th>
-                                                <th>Gender</th>
+                                                <th>Supplier ID</th>
+                                                <th>Supplier Name</th>
+                                                <th>Contact</th>
+                                                <th>Email</th>
                                                 <th>City</th>
-                                                <th>Status</th>
+                                                <th class="text-nowrap">Selling</th>
                                                 <th class="text-nowrap">Action</th>
                                             </tr>
                                         </thead>
@@ -192,81 +205,75 @@
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4 class="modal-title" id="vcenter">Employee Details</h4>
+                                    <h4 class="modal-title" id="vcenter">Supplier Details</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="row">
-                                        <div class= "col-md-12">
-                                            <div class="user-profiler">
-                                                <div class="profile-img"> <img id="gender_img" class="change_img"  alt="user">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                    <div class="row">
                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="control-label">Employee Id</label>
-                                                <input type="text" id="Emp_id" class="form-control"  value="0001" readonly>
+                                                <label class="control-label">Supplier ID</label>
+                                                <input type="text" id="edit_sup_id" class="form-control"  value="0001" readonly>
                                             </div>
                                         </div>
                                          <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="control-label">Name</label>
-                                                <input type="text" id="FullName" class="form-control" >
+                                                <label class="control-label">Supplier Name</label>
+                                                <input type="text" id="edit_sup_name" class="form-control" >
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="control-label">Position</label>
-                                                 <select id="position" name="position" class="form-control custom-select ">
-                                                        <option value="Marketing"> Marketing Staff</option>
-                                                        <option value="Marketing"> Tagasigaw</option>
-                                                        <option value="Marketing"> Tagagulo </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                         <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="control-label">Gender</label>
-                                                <select id="gender" name="gender" class="form-control custom-select selector_image">
-                                                        <option class="male" value="assets/images/users/male.png">Male</option>
-                                                        <option class="female" value="assets/images/users/female.png">Female</option>
-                                                </select>
+                                                <label class="control-label">Contact</label>
+                                                <input type="text" id="edit_sup_contact" class="form-control" value="11-06-99">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="control-label">Birthdate</label>
-                                                <input type="text" id="Birthdate" class="form-control" value="11-06-99">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="control-label">Gcash Account</label>
-                                                <input type="text" id="GcashA" class="form-control" value="123456789">
+                                                <label class="control-label">Email</label>
+                                                <input type="text" id="edit_sup_email" class="form-control" value="11-06-99">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="control-label">Street</label>
-                                                <input type="text" id="Street" class="form-control" value="">
+                                                <input type="text" id="edit_sup_street" class="form-control" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label">Barangay</label>
-                                                <input type="text" id="Barangay" class="form-control" value="">
+                                                <input type="text" id="edit_sup_brgy" class="form-control" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="control-label">City</label>
-                                                <input type="text" id="City" class="form-control" value="">
+                                                <input type="text" id="edit_sup_city" class="form-control" value="">
                                             </div>
                                         </div>
+                                       
                                    </div>
+                                     <div class="row" style="margin-left: .2rem; margin-top: 15px;">
+                                            <div class="checkbox checkbox-primary pull-left p-t-0" style="margin-right: 10px;">
+                                            <input id="echeckbox-flowers" type="checkbox" class="echk">
+                                            <label for="echeckbox-flowers"> Flowers </label>
+                                            </div>
+                                            <div class="checkbox checkbox-primary pull-left p-t-0" style="margin-right: 10px;">
+                                                <input id="echeckbox-Cactus" type="checkbox" class="echk">
+                                                <label for="echeckbox-Cactus"> Cactus</label>
+                                            </div>
+                                            <div class="checkbox checkbox-primary pull-left p-t-0" style="margin-right: 10px;">
+                                                <input id="echeckbox-Soil" type="checkbox" class="echk">
+                                                <label for="echeckbox-Soil"> Soil </label>
+                                            </div>
+                                            <div class="checkbox checkbox-primary pull-left p-t-0" style="margin-right: 10px;">
+                                                <input id="echeckbox-Pot" type="checkbox" class="echk">
+                                                <label for="echeckbox-Pot"> Pot </label>
+                                            </div>
+                                            <input type="hidden" id="esup_selling" name="">
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
@@ -285,64 +292,50 @@
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4 class="modal-title" id="vcenter">Employee Details</h4>
+                                    <h4 class="modal-title" id="vcenter">Supplier Details</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="row">
-                                        <div class= "col-md-12">
-                                            <div class="user-profiler">
-                                                <div class="profile-img"    > <img id="gender_img2" class="change_img" src="assets/images/users/female.png" alt="user">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                    <table  class="table table-striped">
                                         <thead>
                                             
                                         </thead>
-                                        <tbody id="emp_details">
+                                        <tbody id="supplier_details">
                                             <tr>
-                                                <td>Employee ID</td>
-                                                <td>
-                                                   Justine Capili
+                                                <td>Supplier ID</td>
+                                                <td id="view_sup_id">
+                                                   
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>Name</td>
-                                                <td>
-                                                   Justine Capili
+                                                <td id="view_sup_name">
+                                                  
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Role</td>
-                                                <td>
-                                                   Marketing Staff
+                                                <td>Contact</td>
+                                                <td id="view_sup_contact">
+                                                  
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Gender</td>
-                                                <td>
-                                                   Female
+                                                <td>Email</td>
+                                                <td id="view_sup_email">
+                                                  
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>Birthday </td>
-                                                <td>
-                                                  11-06-1999
-                                                </td>
-                                            </tr>
-
                                             <tr>
                                                 <td>Address </td>
-                                                <td>
-                                                   36G Paz St Malabon City, Metro Manila Philippines
+                                                <td id="view_sup_address">
+                                                  
                                                 </td>
                                             </tr>
                                             <tr>
-                                                 <td>Gcash Account</td>
-                                                <td>
-                                                   123456789
+                                                 <td>Selling</td>
+                                                <td id="view_sup_selling">
+                                                  
                                                 </td>
                                             </tr>
                                            
@@ -357,7 +350,7 @@
                         </div>
                         <!-- /.modal-dialog -->
                     </div>
-                <script src="functions/js/user.js"></script>
+                <script src="functions/js/supplier.js"></script>
 
                 <!-- ============================================================== -->
                 <!-- /.End modal -->

@@ -97,12 +97,17 @@
                                                 </div>
                                             </div>
                                             <!--/span-->
-                                         <div class="col-md-6 col-sm-12">
+                                            <div class="col-md-6 col-sm-12">
                                                 <div class="row">
-                                                    <div class="col-md-6 col-sm-12">
+                                                    <div class="col-md-12 col-sm-12">
                                                         <label class="control-label">Quantity</label>
                                                           <input type="number" id="quantity" name="quantity" min="1" max="300" class="form-control">
                                                     </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12">
+                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group ">
                                                             <label class="control-label">Price </label>
@@ -115,9 +120,25 @@
                                                                     <span class="input-group-text">.00</span>
                                                                 </div>
                                                             </div>
-                                                        </div> 
+                                                         </div> 
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Cost Price </label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">₱</span>
+                                                                </div>
+                                                                <input type="text" id="costPrice" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text">.00</span>
+                                                                </div>
+                                                            </div>
+                                                         </div> 
                                                     </div>
                                                 </div>
+                                               
+                                                
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="row">
@@ -164,6 +185,10 @@
                        autoProcessQueue: false,
                        addRemoveLinks: true,
                        parallelUploads: 10,
+                       maxfilesexceeded: function(file) {
+                             this.removeAllFiles();
+                             this.addFile(file);
+                        },
                          // Number of files process at a time (default 2)
                          init: function() {
                         this.on("sending", function(file, xhr, formData) {

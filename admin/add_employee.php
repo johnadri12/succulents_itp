@@ -108,9 +108,8 @@
                                                 <div class="form-group required ">
                                                     <label class="control-label">Position</label>
                                                     <select id="position" name="position" class="form-control custom-select selector_image">
-                                                        <option value="Marketing"> Marketing Staff</option>
-                                                        <option value="Marketing"> Tagasigaw</option>
-                                                        <option value="Marketing"> Tagagulo </option>
+                                                        <option value="Marketing"> Marketing Staff/Cashier</option>
+                                                        <option value="Marketing"> Dispatcher</option>
                                                     </select>
                                                     <small class="form-control-feedback rr hidden_r"> required. </small> 
                                                 </div>

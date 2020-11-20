@@ -3,7 +3,7 @@
 ?>
 
 
-<body class="fix-header fix-sidebar card-no-border">
+<body class="fix-header fix-sidebar card-no-border" onload="load_order_list()">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -76,11 +76,12 @@
                                   <!-- Filter -->
                                     <div class="col-md-4">
                                         <div class="form-group has-success">
-                                        <select class="form-control custom-select ">
-                                            <option class="all" >All</option>
+                                        <select id="status_selecto" class="form-control custom-select ">
+                                           <option class="all" >All</option>
+                                            <option class="active" >Ongoing</option>
                                             <option class="active" >Pending</option>
                                             <option class="inactive" >Successful</option>
-                                             <option class="cancel" >Cancel</option>
+                                           <!--   <option class="cancel" >Cancel</option>-->
                                         </select>
                                         <small class="form-control-feedback"> Please Select Filter </small> </div>
                                     </div>
@@ -113,7 +114,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text" id="btnGroupAddon2"><i class="ti-search"></i></div>
                                                     </div>
-                                                    <input type="text" class="form-control" placeholder="Search " aria-label="Input group example" aria-describedby="btnGroupAddon2">
+                                                    <input  id="search_texto" type="text" class="form-control" placeholder="Search " aria-label="Input group example" aria-describedby="btnGroupAddon2">
                                                 </div>
                                             </div>
                                         </div>
@@ -127,107 +128,19 @@
                                     <table class="table table-striped borderas">
                                         <thead>
                                             <tr>
-                                                <th>Customer Id</th>
+                                                <th>Transaction Code</th>
                                                 <th>Customer Name</th>
-                                                <th>Contact No. </th>
-                                                <th>Order QTY </th>
-                                                <th>Order Date</th>
-                                                <th>Delivery Date</th>
-                                                <th>Employee </th>
-                                                <th>Total </th>
-                                                <th class="text-nowrap text-center">Status</th>
+                                                <th>Contact</th>
+                                                <th>Quantity</th>
+                                                <th>Price</th>
+                                                <th>Order date</th>
+                                                <th>Delivery date</th>
+                                                <th>Status</th>
                                                 <th class="text-nowrap text-center">Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <!-- ============================================================== -->
-                                            <!-- Pending -->
-                                            <!-- ============================================================== -->
-                                            <tr>
-                                                <td>01</td>
-                                                <td>
-                                                   Jean Grey
-                                                </td>
-                                                <td>
-                                                   0922-555-5555
-                                                </td>
-                                                <td>60</td>
-                                                <td>06-25-20</td>
-                                                <td>06-28-20</td>
-                                                <td>Justine Capili</td>
-                                                <td> 3,000.00</td>
-                                                <td  class="text-nowrap text-center"><button type="button" class="btn btn-maliit waves-effect waves-light btn-warning">Pending</button></td>
-                                                <td  class="text-nowrap text-center">
-                                                     <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"data-toggle="modal" data-target="#edit_ordr"></i> </a>
-                                                    <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="View" > <i class="fa fa-eye text-inverse m-r-10"  data-toggle="modal" data-target="#view_ordr"></i> </a>
-                                                </td>
-                                            </tr>
-                                            <!-- ============================================================== -->
-                                            <!-- Success -->
-                                            <!-- ============================================================== -->
-                                            <tr>
-                                                <td>02</td>
-                                                <td>
-                                                   Magenetto
-                                                </td>
-                                                <td>
-                                                   0922-555-5555
-                                                </td>
-                                                <td>100</td>
-                                                <td>06-25-20</td>
-                                                <td>06-26-20</td>
-                                                <td>Jogie Panizales</td>
-                                                <td> 2,000.00</td>
-                                                <td  class="text-nowrap text-center"><button type="button" class="btn btn-maliit waves-effect waves-light btn-success">Success</button></td>
-                                                <td  class="text-nowrap text-center">
-                                                     <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"data-toggle="modal" data-target="#edit_ordr"></i> </a>
-                                                    <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="View" > <i class="fa fa-eye text-inverse m-r-10"  data-toggle="modal" data-target="#view_ordr"></i> </a>
-                                                </td>
-                                            </tr>
-                                            <!-- ============================================================== -->
-                                            <!-- Processing -->
-                                            <!-- ============================================================== -->
-                                            <tr>
-                                                <td>03</td>
-                                                <td>
-                                                   Tony Stark
-                                                </td>
-                                                <td>
-                                                   0922-555-5555
-                                                </td>
-                                                <td>100</td>
-                                                <td>06-25-20</td>
-                                                <td>06-28-20</td>
-                                                <td>Jaymee Alexa</td>
-                                                <td> 2,000.00</td>
-                                                <td  class="text-nowrap text-center"><button type="button" class="btn btn-maliit waves-effect waves-light btn-info" style="padding-left: 11px; padding-right: 11px;">Process</button></td>
-                                                <td  class="text-nowrap text-center">
-                                                     <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"data-toggle="modal" data-target="#edit_ordr"></i> </a>
-                                                    <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="View" > <i class="fa fa-eye text-inverse m-r-10"  data-toggle="modal" data-target="#view_ordr"></i> </a>
-                                                </td>
-                                            </tr>
-                                            <!-- ============================================================== -->
-                                            <!-- Cancel -->
-                                            <!-- ============================================================== -->
-                                            <tr>
-                                                <td>03</td>
-                                                <td>
-                                                   Tony Stark
-                                                </td>
-                                                <td>
-                                                   0922-555-5555
-                                                </td>
-                                                <td>100</td>
-                                                <td>06-25-20</td>
-                                                <td>06-28-20</td>
-                                                <td>Jaymee Alexa</td>
-                                                <td> 2,000.00</td>
-                                                <td  class="text-nowrap text-center"><button type="button" class="btn btn-maliit waves-effect waves-light btn-danger">&nbsp;Cancel&nbsp;</button></td>
-                                                <td  class="text-nowrap text-center">
-                                                     <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"data-toggle="modal" data-target="#edit_ordr"></i> </a>
-                                                    <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="View" > <i class="fa fa-eye text-inverse m-r-10"  data-toggle="modal" data-target="#view_ordr"></i> </a>
-                                                </td>
-                                            </tr>
+                                        <tbody id="manage_order_table">
+                                           
                                            
                                         </tbody>
                                     </table>
@@ -734,3 +647,5 @@
         <?php
             include 'include/footer.php';
         ?>
+
+         <script src="functions/js/order.js"></script>

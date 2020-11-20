@@ -141,6 +141,7 @@
                                                 <th>Type </th>
                                                 <th>Quantity</th>
                                                 <th>Price</th>
+                                                <th>Cost Price</th>
                                                 <th>Status</th>
                                                 <th class="text-nowrap">Action</th>
                                             </tr>
@@ -269,10 +270,18 @@
                                             <!--/span-->
                                             <div class="col-6">
                                                 <div class="row">
-                                                    <div class="col-6">
+                                                    <div class="col-12">
                                                         <label class="control-label">Quantity</label>
                                                           <input type="number" id="equantity" name="quantity" min="1" max="300" class="form-control" value="100">
                                                     </div>
+                                                    
+                                                </div>
+
+                                                
+                                            </div>
+                                            <div class="col-12">
+                                                 <div class="row">
+
                                                     <div class="col-6">
                                                         <div class="form-group ">
                                                             <label class="control-label">Price </label>
@@ -281,14 +290,27 @@
                                                                     <span class="input-group-text">&#8369;</span>
                                                                 </div>
                                                                 <input id="eitem_price" type="text" class="form-control" value="20">
-                                                                <div class="input-group-append">
-                                                                    <span class="input-group-text">.00</span>
-                                                                </div>
+                                                                
                                                             </div>
                                                         </div> 
                                                     </div>
+                                                    <div class="col-6">
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Cost Price </label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">&#8369;</span>
+                                                                </div>
+                                                                <input id="ecost_price" type="text" class="form-control" value="20">
+                                                                
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                    
                                                 </div>
+                                                
                                             </div>
+                                           
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-12">
@@ -364,11 +386,15 @@
                                             <!--/span-->
                                             <div class="col-6">
                                                 <div class="row">
-                                                    <div class="col-6">
+                                                    <div class="col-12">
                                                         <label class="control-label">Quantity</label>
                                                           <input type="number" id="quantity" name="quantity" min="1" max="300" class="form-control" >
                                                     </div>
-                                                    <div class="col-6">
+                                                    
+                                                </div>
+                                            </div>
+                                           
+                                                <div class="col-6">
                                                         <div class="form-group ">
                                                             <label class="control-label">Price </label>
                                                             <div class="input-group">
@@ -381,9 +407,22 @@
                                                                 </div>
                                                             </div>
                                                         </div> 
-                                                    </div>
                                                 </div>
-                                            </div>
+                                                <div class="col-6">
+                                                        <div class="form-group ">
+                                                            <label class="control-label">Cost Price </label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">&#8369;</span>
+                                                                </div>
+                                                                <input id="costPrice" type="text" class="form-control" >
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text">.00</span>
+                                                                </div>
+                                                            </div>
+                                                        </div> 
+                                                </div>
+                                         
                                             <div class="col-md-12">
                                                 <div class="row">
                                                     <div class="col-12">
@@ -505,7 +544,10 @@
                        maxFiles: 1,
                        autoProcessQueue: false,
                        addRemoveLinks: true,
-                       parallelUploads: 10,
+                       parallelUploads: 10,  maxfilesexceeded: function(file) {
+                             this.removeAllFiles();
+                             this.addFile(file);
+                        },
                          // Number of files process at a time (default 2)
                          init: function() {
                         this.on("sending", function(file, xhr, formData) {
@@ -521,6 +563,10 @@
                        autoProcessQueue: false,
                        addRemoveLinks: true,
                        parallelUploads: 10,
+                         maxfilesexceeded: function(file) {
+                             this.removeAllFiles();
+                             this.addFile(file);
+                        },
                          // Number of files process at a time (default 2)
                          init: function() {
                         this.on("sending", function(file, xhr, formData) {
